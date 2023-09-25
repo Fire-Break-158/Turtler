@@ -8,33 +8,39 @@ SPAWN_X = [500, -500]
 MOVE_INCREMENT = 10
 
 
-screen = Screen()
-screen.bgcolor("black")
-screen.setup(width=1000, height=1000)
-screen.title("Car test")
 
-#class CarManager:
-    
-car = Turtle()
-car.hideturtle()
-car.shape("square")
-car.color(random.choice(COLORS))
-car.shapesize(stretch_wid=3, stretch_len=1.5)
-car.penup()
-car.setheading(90)
-car.goto(random.choice(SPAWN_X), random.choice(SPAWN_Y))
-car.showturtle()
+#screen = Screen()
+#screen.bgcolor("black")
+#screen.setup(width=1000, height=1000)
+#screen.title("Car test")
 
-def move():
-    if car.xcor() == -500:
-        while car.xcor != 500:
-            newx = car.xcor() + MOVE_INCREMENT
-            car.goto(newx, car.ycor())
-    elif car.xcor() == 500:
-        while car.xcor != -500:
-            newx = car.xcor() - MOVE_INCREMENT
-            car.goto(newx, car.ycor())
+class CarManager(Turtle):
+    def __init__(self, screen):    
+        super().__init__()
+        
+        
 
-move()
+    def summoncar(a):
+        self = Turtle()
+        self.hideturtle()
+        self.shape("square")
+        self.color(random.choice(COLORS))
+        self.shapesize(stretch_wid=3, stretch_len=1.5)
+        self.penup()
+        self.setheading(90)
+        self.goto(random.choice(SPAWN_X), random.choice(SPAWN_Y))
+        self.showturtle()
 
-screen.exitonclick()
+        def move():
+            if self.xcor() == -500:
+                while self.xcor != 500:
+                    newx = self.xcor() + MOVE_INCREMENT
+                    self.goto(newx, self.ycor())
+            elif self.xcor() == 500:
+                while self.xcor != -500:
+                    newx = self.xcor() - MOVE_INCREMENT
+                    self.goto(newx, self.ycor())
+
+        move()
+
+#screen.exitonclick()
