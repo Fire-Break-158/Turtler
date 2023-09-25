@@ -13,13 +13,13 @@ screen.title("Player test")
 #class Player:
     
 player = Turtle()
+player.hideturtle()
 player.shape("turtle")
 player.color("white")
-player.hideturtle
 player.penup()
 player.setheading(90)
 player.setpos(0,-450)
-player.showturtle
+player.showturtle()
 
 
 

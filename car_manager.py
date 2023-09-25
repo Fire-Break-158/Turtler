@@ -1,9 +1,10 @@
 from turtle import Turtle, Screen
 import random
 
+SPAWN_Y = [100, 200, 300, 400, 500, 600, 700, 800, 900]
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
-STARTING_MOVE_DISTANCE = 5
-SPAWN_POS = [500, -500]
+STARTING_MOVE_DISTANCE = 50
+SPAWN_X = [500, -500]
 MOVE_INCREMENT = 10
 
 
@@ -21,11 +22,19 @@ car.color(random.choice(COLORS))
 car.shapesize(stretch_wid=3, stretch_len=1.5)
 car.penup()
 car.setheading(90)
-car.goto(random.choice(SPAWN_POS), 0)
+car.goto(random.choice(SPAWN_X), random.choice(SPAWN_Y))
 car.showturtle()
 
+def move():
+    if car.xcor() == -500:
+        while car.xcor != 500:
+            newx = car.xcor() + MOVE_INCREMENT
+            car.goto(newx, car.ycor())
+    elif car.xcor() == 500:
+        while car.xcor != -500:
+            newx = car.xcor() - MOVE_INCREMENT
+            car.goto(newx, car.ycor())
 
-
-
+move()
 
 screen.exitonclick()
