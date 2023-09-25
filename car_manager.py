@@ -20,7 +20,7 @@ class CarManager(Turtle):
         
         
 
-    def summoncar(a):
+    def summoncar(self):
         self = Turtle()
         self.hideturtle()
         self.shape("square")
@@ -31,7 +31,7 @@ class CarManager(Turtle):
         self.goto(random.choice(SPAWN_X), random.choice(SPAWN_Y))
         self.showturtle()
 
-        def move():
+        def move(self):
             if self.xcor() == -500:
                 while self.xcor != 500:
                     newx = self.xcor() + MOVE_INCREMENT
@@ -41,6 +41,6 @@ class CarManager(Turtle):
                     newx = self.xcor() - MOVE_INCREMENT
                     self.goto(newx, self.ycor())
 
-        move()
+        move(self)
 
 #screen.exitonclick()
