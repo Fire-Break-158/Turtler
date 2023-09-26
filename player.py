@@ -1,41 +1,28 @@
 from turtle import Turtle, Screen
 
-STARTING_POSITION = (0, -450)
-MOVE_DISTANCE = 20
+
+STARTING_POSITION = (0, -280)
+MOVE_DISTANCE = 10
 FINISH_LINE_Y = 280
 
-class Player(Turtle):
-    def __init__(self, position, screen):
-        super().__init__()
-        self.screen = screen
-        self.hideturtle()
-        self.shape("turtle")
-        self.color("white")
-        self.shapesize(stretch_len=1.5, stretch_wid=1.5)
-        self.penup()
-        self.setheading(90)
-        self.setpos(position)
-        self.showturtle()
+screen = Screen()
+screen.bgcolor("black")
+screen.setup(width=1000, height=1000)
+screen.title("Player test")
 
-        self.screen.listen()
-        self.screen.onkey(self.go_right, "Right")
-        self.screen.onkey(self.go_left, "Left")
-        self.screen.onkey(self.go_up, "Up")
+#class Player:
+    
+player = Turtle()
+player.hideturtle()
+player.shape("turtle")
+player.color("white")
+player.penup()
+player.setheading(90)
+player.setpos(0,-450)
+player.showturtle()
 
-    def go_up(self):
-        print("go up")
-        new_y = self.ycor() + MOVE_DISTANCE
-        self.setheading(90) 
-        self.goto(self.xcor(), new_y)
-        
-    def go_right(self):
-        print("go right")
-        new_x = self.xcor() + MOVE_DISTANCE
-        self.setheading(0)
-        self.goto(new_x, self.ycor())
 
-    def go_left(self):
-        print("go left")
-        new_x = self.xcor() - MOVE_DISTANCE
-        self.setheading(180)
-        self.goto(new_x, self.ycor())
+
+
+
+screen.exitonclick()

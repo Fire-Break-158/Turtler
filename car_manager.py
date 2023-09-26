@@ -8,7 +8,6 @@ SPAWN_X = [500, -500]
 MOVE_INCREMENT = 10
 
 
-
 screen = Screen()
 screen.bgcolor("black")
 screen.setup(width=1000, height=1000)

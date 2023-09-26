@@ -1,24 +1,14 @@
 import time
 from turtle import Screen
-from player import Player, STARTING_POSITION
+from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
 
-game_is_on = True
-
 screen = Screen()
-screen.bgcolor("black")
-screen.setup(width=1000, height=1000)
-screen.title("Main test")
+screen.setup(width=600, height=600)
+screen.tracer(0)
 
-#player = Player(STARTING_POSITION, screen)
-
-
-car = CarManager(screen)
-
-
+game_is_on = True
 while game_is_on:
     time.sleep(1)
     screen.update()
-
-screen.exitonclick()
