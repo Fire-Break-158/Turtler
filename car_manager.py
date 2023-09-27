@@ -4,9 +4,9 @@ import random
 SPAWN_Y1 = [-200, 0, 200, 400]
 SPAWN_Y2 = [-300, -100, 100, 300]
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
-STARTING_MOVE_DISTANCE = 100
+STARTING_MOVE_DISTANCE = 20
 SPAWN_X = [475, -475]
-SPEED_INCREASE = 50
+SPEED_INCREASE = 10
 
 #screen = Screen()
 #screen.bgcolor("black")
