@@ -1,11 +1,12 @@
 from turtle import Turtle, Screen
 import random
 
-SPAWN_Y = [-300, -200, -100, 0, 100, 200, 300, 400]
+SPAWN_Y1 = [-200, 0, 200, 400]
+SPAWN_Y2 = [-300, -100, 100, 300]
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
-STARTING_MOVE_DISTANCE = 25
+STARTING_MOVE_DISTANCE = 100
 SPAWN_X = [475, -475]
-MOVE_INCREMENT = 10
+SPEED_INCREASE = 50
 
 #screen = Screen()
 #screen.bgcolor("black")
@@ -15,7 +16,8 @@ MOVE_INCREMENT = 10
 class CarManager(Turtle):
     def __init__(self):
         self.carlistr = []     
-        self.carlistl = []  
+        self.carlistl = []
+        self.carspeed = STARTING_MOVE_DISTANCE  
 
     def summoncarleft(self):
         car = Turtle()
@@ -24,9 +26,12 @@ class CarManager(Turtle):
         car.color(random.choice(COLORS))
         car.shapesize(stretch_wid=1.5, stretch_len=3)
         car.penup()
-        car.goto(-475, random.choice(SPAWN_Y))
+        car.goto(-475, random.choice(SPAWN_Y1))
         car.showturtle()
         self.carlistr.append(car)
+
+    def level_up(self):
+        self.carspeed += SPEED_INCREASE        
 
     def mover(self):
         for car in self.carlistl:
@@ -39,12 +44,14 @@ class CarManager(Turtle):
         car.color(random.choice(COLORS))
         car.shapesize(stretch_wid=1.5, stretch_len=3)
         car.penup()
-        car.goto(475, random.choice(SPAWN_Y))
+        car.goto(475, random.choice(SPAWN_Y2))
         car.showturtle()
         self.carlistl.append(car)
 
     def movel(self):
         for car in self.carlistr:
             car.forward(STARTING_MOVE_DISTANCE)
+
+
 
 #screen.exitonclick()

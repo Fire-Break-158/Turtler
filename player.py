@@ -1,8 +1,9 @@
 from turtle import Turtle, Screen
 
 STARTING_POSITION = (0, -450)
-MOVE_DISTANCE = 20
-FINISH_LINE_Y = 280
+MOVE_DISTANCE = 50
+FINISH_LINE_Y = 400
+MOVE_INCREMENT = 20
 
 #screen = Screen()
 #screen.bgcolor("black")
@@ -15,11 +16,11 @@ class Player(Turtle):
         self.screen = screen
         self.hideturtle()
         self.shape("turtle")
-        self.color("white")
-        self.shapesize(stretch_len=1.5, stretch_wid=1.5)
+        self.color("black")
+        self.shapesize(stretch_len=1.25, stretch_wid=1.25)
         self.penup()
         self.setheading(90)
-        self.setpos(STARTING_POSITION)
+        self.return_to_start()
         self.showturtle()
 
         self.screen.listen()
@@ -45,3 +46,14 @@ class Player(Turtle):
         self.setheading(180)
         self.goto(new_x, self.ycor())
 
+    def return_to_start(self):
+        self.hideturtle()
+        self.goto(STARTING_POSITION)
+        self.showturtle()
+
+    def crossedroad(self):
+        if self.ycor() > FINISH_LINE_Y:
+
+            return True
+        else:
+            return False

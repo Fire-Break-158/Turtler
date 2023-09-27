@@ -5,21 +5,38 @@ from car_manager import CarManager
 from scoreboard import Scoreboard
 
 screen = Screen()
-screen.bgcolor("black")
+screen.bgcolor("white")
 screen.setup(width=1000, height=1000)
 screen.title("Main test")
 
 player = Player(screen)
 
-car = CarManager()
+carmgr = CarManager()
+
+scoreboard = Scoreboard()
 
 game_is_on = True
 while game_is_on:
     time.sleep(0.01)
     screen.update()
 
-    car.summoncarright()
-    car.movel()
+    carmgr.summoncarright()
+    carmgr.movel()
+    carmgr.summoncarleft()
+    carmgr.mover()
 
-    car.summoncarleft()
-    car.mover()
+    for car in carmgr.carlistr:
+        if car.distance(player) < 50:
+            game_is_on = False
+            scoreboard.gameover()
+    for car in carmgr.carlistl:
+        if car.distance(player) < 50:
+            game_is_on = False
+            scoreboard.gameover()
+
+    if player.crossedroad():
+        player.return_to_start()
+        carmgr.level_up()
+        scoreboard.level_up()
+
+screen.exitonclick()
